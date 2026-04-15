@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Service Solutions | Local Experts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta/css/all.min.css">
+    <style>
+        /* --- CSS Variables and Global Styles --- */
+        :root {
+            --color-primary: #1a1a1a; /* Dark background / text */
+            --color-secondary: #ffffff; /* Light background */
+            --color-accent: #007bff; /* Bright Blue Accent */
+            --color-text: #333333;
+            --spacing: 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            color: var(--color-text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Utility Classes --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-accent);
+            margin: 10px auto 0;
+        }
+
+        /* --- Navbar Styling (Sticky) --- */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--color-primary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-secondary);
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            background: linear-gradient(135deg, var(--color-primary), #2c2c2c);
+            color: var(--color-secondary);
+            text-align: center;
+            padding: 100px 0;
+            margin-bottom: 40px;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        #hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #cccccc;
+        }
+
+        /* --- CTA Button Styling --- */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-secondary);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
+        }
+
+        /* --- Services Section --- */
+        #services {
+            background-color: var(--color-secondary);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .service-card {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--color-accent);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--color-accent);
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* --- Why Choose Us Section --- */
+        #why-choose-us {
+             background-color: var(--color-primary);
+             color: var(--color-secondary);
+        }
+
+        .features-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .feature-item {
+            background: none;
+            padding: 20px;
+            border-radius: 10px;
+            flex-basis: 22%;
+            min-width: 180px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: var(--color-accent);
+            margin-bottom: 10px;
+        }
+
+        /* --- Testimonials Section --- */
+        #testimonials {
+            background-color: var(--color-secondary);
+        }
+
+        .testimonial-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .testimonial-card {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
+            flex: 1;
+            min-width: 300px;
+            border-left: 4px solid var(--color-accent);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .testimonial-card footer {
+            font-weight: 600;
+            color: var(--color-primary);
+            text-align: right;
+        }
+
+
+        /* --- Pricing Section --- */
+        #pricing {
+            background-color: var(--color-primary);
+        }
+
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            background-color: var(--color-secondary);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 2px solid #eee;
+        }
+
+        .price-card:hover {
+             transform: translateY(-7px);
+             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .price-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--color-primary);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 15px;
+        }
+
+        .price-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .price-card ul li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+
+        /* --- Contact Section --- */
+        #contact {
+             background-color: var(--color-secondary);
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* --- Floating WhatsApp Button --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: none;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #1E90FF; /* Slightly lighter blue/purple on hover */
+            transform: scale(1.05);
+        }
+
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 992px) {
+            section {
+                padding: 40px 0;
+            }
+
+             #hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .pricing-grid, .testimonial-grid, .features-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .price-card, .testimonial-card, .feature-item {
+                width: 90%;
+                max-width: 400px;
+            }
+
+            .contact-grid {
+                 flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">ServicePro</div>
+            <div>
+                <!-- Simple navigation links for smooth scroll -->
+                <a href="#services" class="nav-link" style="color: var(--color-secondary); text-decoration: none; margin-right: 20px;">Services</a>
+                <a href="#why-choose-us" class="nav-link" style="color: var(--color-secondary); text-decoration: none; margin-right: 20px;">Why Us</a>
+                <a href="#pricing" class="nav-link" style="color: var(--color-secondary); text-decoration: none; margin-right: 20px;">Pricing</a>
+                <a href="#contact" class="cta-button" style="background-color: var(--color-accent); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero">
+        <div class="container">
+            <h1>Unlock Your Potential with ServicePro</h1>
+            <p>The ultimate platform for seamless service delivery and unmatched quality.</p>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <i class="material-icons">redeem</i>
+                    <h3>Service Booking</h3>
+                    <p>Easily book services from verified professionals in your area.</p>
+                </div>
+                <div class="service-card">
+                    <i class="material-icons">build</i>
+                    <h3>Project Management</h3>
+                    <p>Streamline your projects with our comprehensive management tools.</p>
+                </div>
+                <div class="service-card">
+                    <i class="material-icons">support</i>
+                    <h3>Customer Support</h3>
+                    <p>Get 24/7 support whenever you need it.</p>
+                </div>
+                <div class="service-card">
+                    <i class="material-icons">design</i>
+                    <h3>Creative Design</h3>
+                    <p>Access stunning designs tailored to your vision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us">
+        <div class="container">
+            <h2>Why Choose ServicePro?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="material-icons">star</i>
+                    <div>
+                        <h3>Verified Professionals</h3>
+                        <p>All service providers are thoroughly vetted for quality and reliability.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="material-icons">shield">
+                        <div>
+                            <h3>Secure Transactions</h3>
+                            <p>Your payments are protected with industry-icons security protocols.</p>
+                        </div>
+                </div>
+                <div class="feature-item">
+                    <i class="material-icons">star">
+                        <div>
+                            <h3>24/7 Support</h3>
+                            <p>Dedicated support is always available, day and night.</p>
+                        </div>
+                </div>
+                <div class="feature-item">
+                    <i class="material-icons">auto_sports</i>
+                    <div>
+                        <h3>Easy Booking</h3>
+                        <p>A simple, intuitive process to find and book exactly what you need.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"ServicePro made finding reliable services incredibly easy. The quality exceeded my expectations!"</p>
+                    <footer>— Sarah L.</footer>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Seamless experience from booking to completion. Highly recommend this platform for all your needs."</p>
+                    <footer>— Mike R.</footer>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="container">
+            <h2>Simple & Transparent Pricing</h2>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Basic Plan</h3>
+                    <div class="price">$19/mo</div>
+                    <ul>
+                        <li>5 Projects</li>
+                        <li>Standard Support</li>
+                        <li>Basic Features</li>
+                        <li>Limited Access</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="background-color: var(--color-accent); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Get Started</a>
+                </div>
+                <div class="price-card">
+                    <h3>Pro Plan</h3>
+                    <div class="price">$49/mo</div>
+                    <ul>
+                        <li>Unlimited Projects</li>
+                        <li>Priority Support</li>
+                        <li>Advanced Features</li>
+                        <li>Full Access</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="background-color: var(--color-accent); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Get Started</a>
+                </div>
+                <div class="price-card">
+                    <h3>Enterprise Plan</h3>
+                    <div class="price">$99/mo</div>
+                    <ul>
+                        <li>Unlimited Access</li>
+                        <li>24/7 Support</li>
+                        <li>Custom Integrations</li>
+                        <li>Priority Access</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="background-color: var(--color-accent); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Us</h3>
+                    <p>Have questions? We are here to help.</p>
+                    <p>Email us at info@servicepro.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 ServicePro. All rights reserved.</p>
+            </div>
+        </footer>
+
+    <!-- Floating WhatsApp Button -->
+        <a href="#" class="whatsapp-float" title="Chat on WhatsApp">
+            <i class="material-icons">whatsapp</i>
+        </a>
+
+</body>
+</html>
+<!-- Missing closing tags for body and html --> 
+</html>
